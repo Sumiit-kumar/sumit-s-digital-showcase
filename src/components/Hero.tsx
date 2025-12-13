@@ -3,9 +3,13 @@ import { ArrowDown, FileText } from 'lucide-react';
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Background gradient orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+      {/* Animated gradient blobs */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-blob" />
+      <div className="absolute top-1/3 -right-32 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
+      <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-primary/15 rounded-full blur-3xl animate-blob animation-delay-4000" />
+      
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(230,230,230,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(230,230,230,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="fade-in-section visible">

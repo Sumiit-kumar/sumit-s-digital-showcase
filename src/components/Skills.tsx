@@ -1,42 +1,13 @@
+import { Code, Palette, FileCode, Terminal, Coffee, GitBranch } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const skills = [
-  {
-    name: 'HTML',
-    icon: '🌐',
-    description: 'Semantic markup & accessibility',
-    color: 'from-orange-500/20 to-orange-600/20',
-  },
-  {
-    name: 'CSS',
-    icon: '🎨',
-    description: 'Styling & animations',
-    color: 'from-blue-500/20 to-blue-600/20',
-  },
-  {
-    name: 'JavaScript',
-    icon: '⚡',
-    description: 'Interactive & dynamic UIs',
-    color: 'from-yellow-500/20 to-yellow-600/20',
-  },
-  {
-    name: 'C',
-    icon: '🔧',
-    description: 'Problem solving & DSA',
-    color: 'from-gray-500/20 to-gray-600/20',
-  },
-  {
-    name: 'Java',
-    icon: '☕',
-    description: 'Object-oriented programming',
-    color: 'from-red-500/20 to-red-600/20',
-  },
-  {
-    name: 'Git & GitHub',
-    icon: '🔀',
-    description: 'Version control & collaboration',
-    color: 'from-purple-500/20 to-purple-600/20',
-  },
+  { name: 'HTML', icon: Code, color: 'text-orange-400', description: 'Semantic markup & accessibility' },
+  { name: 'CSS', icon: Palette, color: 'text-blue-400', description: 'Styling & animations' },
+  { name: 'JavaScript', icon: FileCode, color: 'text-yellow-400', description: 'Interactive & dynamic UIs' },
+  { name: 'C', icon: Terminal, color: 'text-green-400', description: 'Problem solving & DSA' },
+  { name: 'Java', icon: Coffee, color: 'text-red-400', description: 'Object-oriented programming' },
+  { name: 'Git & GitHub', icon: GitBranch, color: 'text-purple-400', description: 'Version control & collaboration' },
 ];
 
 const Skills = () => {
@@ -64,24 +35,31 @@ const Skills = () => {
 
           {/* Skills bento grid */}
           <div className="bento-grid max-w-4xl mx-auto">
-            {skills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="skill-badge group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Gradient background on hover */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                
-                <span className="text-4xl relative z-10">{skill.icon}</span>
-                <h3 className="text-lg font-semibold text-foreground relative z-10">
-                  {skill.name}
-                </h3>
-                <p className="text-sm text-muted-foreground text-center relative z-10">
-                  {skill.description}
-                </p>
-              </div>
-            ))}
+            {skills.map((skill, index) => {
+              const IconComponent = skill.icon;
+              return (
+                <div
+                  key={skill.name}
+                  className="skill-badge group"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {/* Icon with glow effect */}
+                  <div className="p-4 rounded-2xl bg-secondary/50 group-hover:bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20">
+                    <IconComponent 
+                      size={32} 
+                      className={`${skill.color} transition-all duration-300 group-hover:drop-shadow-[0_0_8px_currentColor]`} 
+                    />
+                  </div>
+                  
+                  <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors relative z-10">
+                    {skill.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground text-center relative z-10">
+                    {skill.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
