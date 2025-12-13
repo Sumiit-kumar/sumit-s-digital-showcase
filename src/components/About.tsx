@@ -1,5 +1,12 @@
-import { Code2, Lightbulb, Target } from 'lucide-react';
+import { Code2, Lightbulb, Target, Rocket, GraduationCap, Briefcase } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+const stats = [
+  { icon: Code2, label: 'Projects', value: '1+' },
+  { icon: Rocket, label: 'Year', value: '3rd' },
+  { icon: GraduationCap, label: 'Degree', value: 'B.Tech' },
+  { icon: Briefcase, label: 'Goal', value: 'SDE' },
+];
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -19,6 +26,25 @@ const About = () => {
             <p className="text-muted-foreground max-w-xl mx-auto">
               Get to know me a little better
             </p>
+          </div>
+
+          {/* Bento Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+            {stats.map((stat) => {
+              const IconComponent = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  className="glass-card p-6 text-center glow-hover group"
+                >
+                  <div className="inline-flex p-3 rounded-xl bg-primary/20 mb-3 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                    <IconComponent size={24} className="text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-foreground">{stat.value}</div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Content grid */}
