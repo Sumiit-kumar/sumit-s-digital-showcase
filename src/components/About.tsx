@@ -1,4 +1,4 @@
-import { Code2, Lightbulb, Target, Rocket, GraduationCap, Briefcase } from 'lucide-react';
+import { Code2, Lightbulb, Target, Rocket, GraduationCap, Briefcase, User } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const stats = [
@@ -26,6 +26,42 @@ const About = () => {
             <p className="text-muted-foreground max-w-xl mx-auto">
               Get to know me a little better
             </p>
+          </div>
+
+          {/* Photo + Intro Section */}
+          <div className="flex flex-col lg:flex-row items-center gap-8 mb-12 max-w-4xl mx-auto">
+            {/* Photo Card */}
+            <div className="glass-card p-4 group shrink-0 relative">
+              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-500">
+                {/* Placeholder - replace src with actual photo */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <User size={80} className="text-primary/40" />
+                </div>
+                {/* Uncomment and add your photo:
+                <img 
+                  src="/your-photo.jpg" 
+                  alt="Sumit Kumar"
+                  className="w-full h-full object-cover"
+                />
+                */}
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+              {/* Subtle border glow */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/50 to-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500 -z-10" />
+            </div>
+
+            {/* Quick intro text */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                Sumit Kumar
+              </h3>
+              <p className="text-primary font-medium mb-3">Frontend Developer & Engineering Student</p>
+              <p className="text-muted-foreground leading-relaxed max-w-md">
+                Passionate about creating beautiful, responsive web experiences. 
+                Currently pursuing B.Tech and seeking opportunities to grow as a developer.
+              </p>
+            </div>
           </div>
 
           {/* Bento Stats Grid */}
